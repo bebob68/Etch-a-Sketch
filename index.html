@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css"/>
+    <title></title>
+  </head>
+  <body>
+    <div class="grid_input">
+    <form >
+    Input Grid size:<input type="text" name="gridS" id="gridSize"><button type="button" id="grid">Set grid</button>
+    </form>
+
+  </div>
+
+    <div id = "container"></div>
+
+    <div id= "buttons">
+    <button type="button" id="white">White</button>
+    <button type="button" id="random">Random</button>
+    </div>
+
+    <script>
+    var grid=16;
+    const gridbtn =document.getElementById("grid");
+
+    gridbtn.addEventListener('click',()=>{
+
+      grid =document.getElementById("gridSize").value;
+      document.body.style.setProperty("--grid-size", grid);
+      clearScreen();
+      var content;
+
+      for (var i = 0; i < grid*grid; i++) {
+        const container=document.querySelector('#container');
+          content= document.createElement('div');
+          content.classList.add('content');
+          container.appendChild(content);
+
+          }
+       });
+
+    // create grid
+    var content;
+    for (var i = 0; i < grid**2; i++) {
+      const container=document.querySelector('#container');
+        content= document.createElement('div');
+        content.classList.add('content');
+        container.appendChild(content);
+        }
+  // clear screen
+      function clearScreen() {
+         while (container.firstChild) {
+        container.removeChild(container.firstChild);
+      }}
+
+    // change the bg on hover to white
+    function whiteColor(){
+    var contents = document.getElementsByClassName('content');
+    Array.from(contents).forEach(function(element){
+      element.addEventListener('mouseover',e =>{
+        e.target.style.background="white";
+        console.log("white Color");
+      });
+    });}
+
+
+    // random color function
+    function getRandomColor () {
+  var hex = Math.floor(Math.random() * 0xFFFFFF);
+  return "#" + ("000000" + hex.toString(16)).substr(-6);
+}
+    function randomColor(){
+      var contents = document.getElementsByClassName('content');
+      Array.from(contents).forEach(function(element){
+        element.addEventListener('mouseover',e=>{
+          e.target.style.background=getRandomColor();
+          console.log("random color");
+        });
+      });
+    }
+
+
+    //assign functions to buttons
+   const white=document.querySelector('#white');
+   white.addEventListener('click',()=>{whiteColor();console.log("white got called");});
+   const random=document.querySelector('#random');
+   random.addEventListener('click',()=>{randomColor();console.log("random got called");});
+
+
+
+    </script>
+  </body>
+
+</html>

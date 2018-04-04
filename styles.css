@@ -1,0 +1,49 @@
+:root {
+     --color1: #50514F;
+     --color2: #F25F5C;
+     --color3: #FFE066;
+     --background1: #ffffff;
+     --background2: #e2e2ee;
+     --grid-size: 16;
+     --grid-gap: 0px;
+     --box-shadow: 26px 35px 126px -31px rgba(0,0,0,0.62);
+   }
+#container {
+    display:grid;
+    grid-gap:var(--grid-gap);
+    grid-size:var(--grid-size);
+    grid-template-columns: repeat(var(--grid-size), 1fr);
+    grid-template-rows: rpeat(var(--grid-size), 1fr);
+    margin:auto;
+    box-shadow: var(--box-shadow);
+    border: #000000 solid 7px;
+    width: 600px;
+    height: 600px;
+    background-color: #b5b5bc;
+
+  }
+.content {
+  float:left;
+  position: relative;
+  width: 30;
+  padding-bottom : 30%; /* = width for a 1:1 aspect ratio */
+  margin:3%;
+  background-color:#000000;
+  overflow:hidden;
+  border: var(--color1) solid 1px ;
+}
+.grid_input{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 50%;
+  padding: 10px
+
+}
+#buttons{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 50%;
+  padding: 10px;
+}
